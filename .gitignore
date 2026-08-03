@@ -1,0 +1,11 @@
+# Visual Studio files & folders
+.vs/
+x64/
+Debug/
+Release/
+*.sln.docstates
+
+# Build outputs
+*.exe
+*.obj
+*.pdb
