@@ -326,49 +326,22 @@ public:
 		return _LoadCurrenciesDataFromFile();
 	}
 
-	double ConvertToUSD( double Amount)
+	float ConvertToUSD( float Amount)
 	{
-
-		double Result = 0;
-		if (_Rate > 1)
-		{
-			Result = Amount / Rate;
-		}
-		else if (_Rate < 1)
-		{
-			Result = Rate * Amount;
-
-		}
-		else
-		{
-			Result = Amount;
-		}
-		return Result;
+		return (float)(Amount / Rate);
+	
 	}
 
-	double ConvertFromUSD(double USDAmount) 
+	float ConvertToOtherCurrency(float Amount, clsCurrency DestinationCurrency)
 	{
-		double Result = 0;
+		float AmountInUSD = ConvertToUSD(Amount);
 
-		if (Rate > 1)
+		if (DestinationCurrency.Code == "USD" || DestinationCurrency.Code == "usd")
 		{
-			Result = USDAmount * Rate;
-			return Result;
+			return AmountInUSD;
 		}
 
-		if (Rate < 1)
-		{
-			Result = USDAmount / Rate;
-			return Result;
-
-		}
-
-		else 
-		{
-			Result = USDAmount;
-			return Result;
-
-		}
+		return (float) (AmountInUSD * DestinationCurrency.Rate);
 
 	}
 
