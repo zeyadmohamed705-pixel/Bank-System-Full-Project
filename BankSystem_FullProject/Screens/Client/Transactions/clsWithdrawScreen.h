@@ -41,7 +41,7 @@ public:
 
 		cout << "\nPlease enter Withdraw Amount: ";
 
-		double Amount = clsInputValidate::ReadDoubleNumber("Invalid Input, please enter a valid Amount");
+		double Amount = clsInputValidate::ReadNumber<double>("Invalid Input, please enter a valid Amount");
 		cout << "\nAre you sure you want to perform this Transaction? Y/N";
 		char Answer = 'n';
 		cin >> Answer;

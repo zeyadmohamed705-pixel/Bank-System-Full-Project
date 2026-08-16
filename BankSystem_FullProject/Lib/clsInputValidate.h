@@ -1,3 +1,82 @@
+
+#pragma once
+#include <iostream>
+#include <string>
+#include "clsString1.h"
+#include "clsDate.h"
+
+using namespace std;
+
+class clsInputValidate
+{
+
+public:
+
+	template <typename T>
+	static bool IsNumberBetween(T Num, T From, T To)
+	{
+		return (Num >= From) && (Num <= To);
+	}
+
+	// Dates 
+	static bool IsDateBetween(clsDate Date, clsDate Date1, clsDate Date2)
+	{
+		return clsDate::IsDateBetween(Date, Date1, Date2);
+	}
+
+
+
+	template <typename T>
+	static T ReadNumber(string ErrorMsg = "Invalid Num, Enter again\n")
+	{
+		T Num;
+		while (!(cin >> Num))
+		{
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << ErrorMsg;
+		}
+		return Num;
+	}
+
+	template <typename T>
+	static T ReadNumberBetween(T From, T To, string ErrorMessage = "Number is not within range, Enter again:\n")
+	{
+		T Num = ReadNumber<T>();
+
+		while (!IsNumberBetween(Num, From, To))
+		{
+			cout << ErrorMessage;
+			Num = ReadNumber<T>();
+		}
+
+		return Num;
+	}
+
+	static bool IsValideDate(clsDate Date)
+	{
+		return clsDate::IsValidDate(Date);
+
+	}
+
+	static string ReadString()
+	{
+		string S1 = "";
+		// remember: Usage of std::ws will extract allthe whitespace character
+		getline(cin >> ws, S1);
+		return S1;
+	}
+
+};
+
+
+
+
+
+
+
+/*
+
 #pragma once
 #include <iostream>
 #include <string>
@@ -148,6 +227,6 @@ public:
 
 };
 
-
+*/
 
 

@@ -37,11 +37,11 @@ class clsTransferScreen : protected clsScreen
 	static double _ReadAmount(clsBankClient SourceClient)
 	{
 		cout << "\nEnter Transfer Amount? ";
-		double Amount = clsInputValidate::ReadDoubleNumber();
+		double Amount = clsInputValidate::ReadNumber<double>();
 		while (Amount > SourceClient.AccountBalance)
 		{
 			cout << "\nAmount Exceeds the available Balance, Enter another Amount ? ";
-			Amount = clsInputValidate::ReadDoubleNumber();
+			Amount = clsInputValidate::ReadNumber<double>();
 		}
 		return Amount;
 	}

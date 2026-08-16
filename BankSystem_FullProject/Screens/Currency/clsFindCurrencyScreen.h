@@ -46,7 +46,7 @@ public:
 
         cout << "\nFind by [1] for Code [2] for Country: ";
         short Answer = 0;
-        Answer = clsInputValidate::ReadShortNumberBetween(1, 2);
+        Answer = clsInputValidate::ReadNumberBetween<short>(1, 2);
         if (Answer == 1)
         {
             cout << "\nPlease Enter a Country Code: ";

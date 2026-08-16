@@ -20,7 +20,7 @@ private:
 	static short _ReadTransactionsMenueOption()
 	{
 		cout << setw (37) << left << "" << "Choose what do you want to do? [1 to 6]?\n ";
-		short Choice = clsInputValidate::ReadShortNumberBetween(1, 6);
+		short Choice = clsInputValidate::ReadNumberBetween<short>(1, 6);
 		return Choice;
 	}
 	enum enTransactionsMenueOptions { eDeposite = 1, eWithdraw = 2, eTotalBalances = 3,eTransfer = 4 ,eTransferLog = 5,eShowMainMenue = 6 };
